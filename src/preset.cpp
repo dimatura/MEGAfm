@@ -25,6 +25,9 @@ void loadZero() {
 }
 
 void panel() {
+	// ensure pickupMode is momentarily off
+	bool oldPickupMode = pickupMode;
+	pickupMode = false;
 	for (int i = 0; i < 64; i++) {
 		potLast[i] = 1000;
 	}
@@ -33,6 +36,7 @@ void panel() {
 	digit(0, 14);
 	digit(1, 17);
 	delay(500);
+	pickupMode = oldPickupMode;
 }
 
 void setIndex() { index = (preset * 79) + kBankOffsets[bank]; }
